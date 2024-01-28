@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Too-Many-Tokens-DND</title>
   <link rel="stylesheet" type="text/css" href="styles.css">
+  <script type="text/javascript" src="jszip.min.js"></script>
+  <script type="text/javascript" src="FileSaver.min.js"></script>
+
 </head>
 
 <body>
@@ -18,7 +21,8 @@
       </div>
     </div>
     <button id="showImagesBtn" disabled>Show too many tokens</button>
-    <div id="imagesContainer" class="images-container"></div>
+    <button id="downloadImagesBtn" style="display:none;">Download Images</button>
+    <div id="imagesContainer" class="images-container"></div>    
   </div>
 
   <script>
@@ -48,11 +52,19 @@
         imagePaths.forEach((path) => {
           const img = document.createElement("img");
           img.src = baseUrl + selectedFileName.replace(" ", "%20") + "/" + path;
+          img.title = path;
           img.width = 256;
           img.height = 256;
           img.onclick = function () { copyImageLink(img.src) };
           imagesContainer.appendChild(img);
         });
+
+        // Show the download button if images are shown
+        if (imagePaths.length > 0) {
+          document.getElementById("downloadImagesBtn").style.display = "block";
+        } else {
+          document.getElementById("downloadImagesBtn").style.display = "none";
+        }
       }
 
       // Initialize dropdown with .txt files
@@ -147,6 +159,32 @@
               // Optionally, provide feedback to the user
                new Notification("Image link copied to clipboard: " + imageLink);
             }
+
+            // Function to download images as a zip file
+              document.getElementById("downloadImagesBtn").addEventListener("click", async function () {
+                const images = document.getElementById("imagesContainer").getElementsByTagName("img");
+                const zip = new JSZip();
+                // const imgFolder = zip.folder(`images ${document.getElementById("myInput").value}`);
+
+                for (let i = 0; i < images.length; i++) {
+                  const image = images[i];
+                  const imageName = image.title.slice(0, -1);;
+                  const imageUrl = image.src;
+
+                  // await imgFolder.file(imageName, imageBlob);
+                    console.log(i)
+                    var imageFetch = await fetch(imageUrl)
+                    var imageBlob = await imageFetch.blob()
+                    // var img = zip.folder("images");
+                    // loading a file and add it in a zip file
+                    zip.file(imageName, imageBlob, { binary: true });
+                }
+
+                zip.generateAsync({ type: "blob" })
+                  .then(content => {
+                    saveAs(content, `${document.getElementById("myInput").value}.zip`);
+                  });
+              });
 
   // Function to fetch .txt files in a folder
   async function fetchTxtFiles() {

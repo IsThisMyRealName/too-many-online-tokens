@@ -20,7 +20,6 @@
         <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" onfocus="toggleDropdownShow(true)">
       </div>
     </div>
-    <button id="showImagesBtn" disabled>Show too many tokens</button>
     <button id="downloadImagesBtn" style="display:none;">Download Images</button>
     <div id="imagesContainer" class="images-container"></div>    
   </div>
@@ -83,19 +82,6 @@
         toggleDropdownShow(false);
       });
 
-      
-
-      // Add event listener to the button
-      document
-        .getElementById("showImagesBtn")
-        .addEventListener("click", showImages);
-
-      // // Enable button when a file is selected
-      // document
-      //   .getElementById("txtFilesSearch")
-      //   .addEventListener("change", function () {
-      //     document.getElementById("showImagesBtn").disabled = false;
-      //   });
 
         /* When the user clicks on the button,
   toggle between hiding and showing the dropdown content */
@@ -115,8 +101,8 @@
 
           function applyTextToInput(text) {
               document.getElementById("myInput").value = text;
-              document.getElementById("showImagesBtn").disabled = false;
               toggleDropdownShow(false);
+              showImages();
             };
 
           function filterFunction() {
@@ -133,7 +119,6 @@
                 a[i].style.display = "none";
               }
             }
-            document.getElementById("showImagesBtn").disabled = true;
           } 
 
           // Function to copy the image link

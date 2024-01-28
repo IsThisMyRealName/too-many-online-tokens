@@ -56,6 +56,7 @@
           img.height = 256;
           img.onclick = function () { copyImageLink(img.src) };
           imagesContainer.appendChild(img);
+          toggleDropdownShow(false);
         });
 
         // Show the download button if images are shown
@@ -87,8 +88,8 @@
   toggle between hiding and showing the dropdown content */
           function toggleDropdownShow(shouldShow) {
             const textFileSearch = document.getElementById("txtFilesSearch");
-            
             if (shouldShow) {
+              document.getElementById("myInput").select();
               filterFunction();
             }
             else {
@@ -96,12 +97,12 @@
               for (i = 0; i < a.length; i++) {
                 a[i].style.display = "none";
               }
+              
             }
           }
 
           function applyTextToInput(text) {
               document.getElementById("myInput").value = text;
-              toggleDropdownShow(false);
               showImages();
             };
 
@@ -111,6 +112,7 @@
             filter = input.value.toUpperCase();
             div = document.getElementById("txtFilesSearch");
             a = div.getElementsByTagName("a");
+            toggleDropdownShow(false);
             for (i = 0; i < a.length; i++) {
               txtValue = a[i].textContent || a[i].innerText;
               if (txtValue.toUpperCase().indexOf(filter) > -1) {

@@ -50,6 +50,7 @@
           img.src = baseUrl + selectedFileName.replace(" ", "%20") + "/" + path;
           img.width = 256;
           img.height = 256;
+          img.onclick = function () { copyImageLink(img.src) };
           imagesContainer.appendChild(img);
         });
       }
@@ -122,6 +123,30 @@
             }
             document.getElementById("showImagesBtn").disabled = true;
           } 
+
+          // Function to copy the image link
+            function copyImageLink(imageLink) {
+              // Create a temporary input element
+              var tempInput = document.createElement("input");
+
+              // Set the input value to the image link
+              tempInput.value = imageLink;
+
+              // Append the input element to the body
+              document.body.appendChild(tempInput);
+
+              // Select the input element's value
+              tempInput.select();
+
+              // Copy the selected value
+              document.execCommand("copy");
+
+              // Remove the temporary input element
+              document.body.removeChild(tempInput);
+
+              // Optionally, provide feedback to the user
+               new Notification("Image link copied to clipboard: " + imageLink);
+            }
 
   // Function to fetch .txt files in a folder
   async function fetchTxtFiles() {

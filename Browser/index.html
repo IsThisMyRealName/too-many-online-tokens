@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Too-Many-Tokens-DND</title>
+  <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <label for="txtFiles">Show too many tokens for:</label>
+    <div class="dropdown-container">
+      <!-- <select id="txtFiles" class="select-search"></select> -->
+      <div id="txtFilesSearch" class="dropdown-content">
+        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()" onfocus="toggleDropdownShow(true)">
+      </div>
+    </div>
+    <button id="showImagesBtn" disabled>Show too many tokens</button>
+    <div id="imagesContainer" class="images-container"></div>
+  </div>
+
+  <script>
+      // Define the base URL for image paths
+      const baseUrl =
+        "https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-dnd/main/";
+
+      // Function to fetch .txt files in a folder
+      async function fetchTxtFiles() {
+        const response = await fetch('link-files/');
+        const txtFile = await response.text();
+        const txtFiles = txtFile.split('\n').flatMap(line => line.split(' ')).filter(word => word.trim().endsWith('.txt'));
+        return txtFiles;
+      }
+
+      // Function to fetch image paths from a selected .txt file
+      async function fetchImagePaths(fileName) {
+        const response = await fetch('link-files/' + fileName);
+        const lines = await response.text();
+        return lines
+          .split("\n")
+          .filter((line) => line.trim().endsWith(".webp"));
+      }
+
+      // Function to display images
+      async function showImages() {
+        const selectedFileName = document.getElementById("myInput").value;
+        const imagePaths = await fetchImagePaths(`${selectedFileName}.txt`);
+
+        const imagesContainer = document.getElementById("imagesContainer");
+        imagesContainer.innerHTML = ""; // Clear previous images
+
+        imagePaths.forEach((path) => {
+          const img = document.createElement("img");
+          img.src = baseUrl + selectedFileName.replace(" ", "%20") + "/" + path;
+          img.width = 256;
+          img.height = 256;
+          imagesContainer.appendChild(img);
+        });
+      }
+
+      // Initialize dropdown with .txt files
+      fetchTxtFiles().then((txtFiles) => {
+        // const dropdown = document.getElementById("txtFiles");
+        const textSearchDropdown = document.getElementById("txtFilesSearch");
+        txtFiles.forEach((fileName) => {
+          const option = document.createElement("a");
+          option.value = fileName;
+          option.text = fileName.split(".")[0].replace("%20", " "); // Remove .txt extension
+          
+          // dropdown.appendChild(option);
+          textSearchDropdown.appendChild(option);
+          option.onclick = function() {applyTextToInput(option.text)}; 
+        });
+        toggleDropdownShow(false);
+      });
+
+      
+
+      // Add event listener to the button
+      document
+        .getElementById("showImagesBtn")
+        .addEventListener("click", showImages);
+
+      // // Enable button when a file is selected
+      // document
+      //   .getElementById("txtFilesSearch")
+      //   .addEventListener("change", function () {
+      //     document.getElementById("showImagesBtn").disabled = false;
+      //   });
+
+        /* When the user clicks on the button,
+  toggle between hiding and showing the dropdown content */
+          function toggleDropdownShow(shouldShow) {
+            const textFileSearch = document.getElementById("txtFilesSearch");
+            
+            if (shouldShow) {
+              filterFunction();
+            }
+            else {
+              var a = textFileSearch.getElementsByTagName("a");
+              for (i = 0; i < a.length; i++) {
+                a[i].style.display = "none";
+              }
+            }
+          }
+
+          function applyTextToInput(text) {
+              document.getElementById("myInput").value = text;
+              document.getElementById("showImagesBtn").disabled = false;
+              toggleDropdownShow(false);
+            };
+
+          function filterFunction() {
+            var input, filter, ul, li, a, i;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            div = document.getElementById("txtFilesSearch");
+            a = div.getElementsByTagName("a");
+            for (i = 0; i < a.length; i++) {
+              txtValue = a[i].textContent || a[i].innerText;
+              if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                a[i].style.display = "";
+              } else {
+                a[i].style.display = "none";
+              }
+            }
+            document.getElementById("showImagesBtn").disabled = true;
+          } 
+    </script>
+  </body>
+</html>

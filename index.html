@@ -9,22 +9,7 @@
   <script type="text/javascript" src="jszip.min.js"></script>
   <script type="text/javascript" src="FileSaver.min.js"></script>
   <style>
-    /* Add your loading spinner styles here */
-    .spinner {
-      border: 4px solid rgba(0, 0, 0, 0.1);
-      border-left-color: #09f;
-      animation: spin 1s linear infinite;
-      border-radius: 50%;
-      width: 30px;
-      height: 30px;
-      margin: 0 auto;
-    }
-
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
+    
   </style>
 </head>
 
@@ -33,9 +18,9 @@
     <label for="txtFiles">Show too many tokens for:</label>
     <div class="dropdown-container">
       <!-- <select id="txtFiles" class="select-search"></select> -->
+      <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"
+      onfocus="toggleDropdownShow(true)">
       <div id="txtFilesSearch" class="dropdown-content">
-        <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"
-          onfocus="toggleDropdownShow(true)">
         <div id="loadingSpinner" class="spinner" style="display:none;"></div>
       </div>
     </div>

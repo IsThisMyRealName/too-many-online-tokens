@@ -19,8 +19,8 @@
     <div class="dropdown-container">
       <!-- <select id="txtFiles" class="select-search"></select> -->
       <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"
-      onfocus="toggleDropdownShow(true)">
-      <div id="txtFilesSearch" class="dropdown-content">
+      onfocus="toggleDropdownShow(true); showDropdown(true);">
+      <div id="txtFilesSearch" class="dropdown-content" style="display:none;">
         <div id="loadingSpinner" class="spinner" style="display:none;"></div>
       </div>
     </div>
@@ -29,6 +29,14 @@
   </div>
 
   <script>
+    function showDropdown(shouldShow){
+      if(shouldShow){
+        document.getElementById("txtFilesSearch").style.display = "";
+      }
+      else{
+        document.getElementById("txtFilesSearch").style.display = "none";
+      }
+    }
     // Define the base URL for image paths
     const baseUrl =
       "https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-dnd/main/";
@@ -60,6 +68,7 @@
         img.onclick = function () { copyImageLink(img.src) };
         imagesContainer.appendChild(img);
         toggleDropdownShow(false);
+        showDropdown(false);
       });
 
       // Show the download button if images are shown
@@ -100,6 +109,7 @@
         filterFunction();
       }
       else {
+        
         var a = textFileSearch.getElementsByTagName("a");
         for (i = 0; i < a.length; i++) {
           a[i].style.display = "none";

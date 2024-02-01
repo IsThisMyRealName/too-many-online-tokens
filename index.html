@@ -24,11 +24,21 @@
         <div id="loadingSpinner" class="spinner" style="display:none;"></div>
       </div>
     </div>
+    <div id="checkboxContainer">
+      <!-- Checkboxes will be dynamically added here -->
+    </div>
+
     <button id="downloadImagesBtn" style="display:none;">Download Images</button>
     <div id="imagesContainer" class="images-container"></div>
   </div>
 
   <script>
+
+    const halfOrcString = "HalfOrc";
+      const halfElfString = "HalfElf";
+      const halfOrcReplacementString = "Halforc";
+      const halfElfReplacementString = "Halfelf";
+
     function showDropdown(shouldShow){
       if(shouldShow){
         document.getElementById("txtFilesSearch").style.display = "";
@@ -54,7 +64,6 @@
     async function showImages() {
       const selectedFileName = document.getElementById("myInput").value;
       const imagePaths = await fetchImagePaths(`${selectedFileName}.txt`);
-
       const imagesContainer = document.getElementById("imagesContainer");
       imagesContainer.innerHTML = ""; // Clear previous images
 
@@ -64,12 +73,15 @@
         img.title = path;
         img.width = 256;
         img.height = 256;
-        img.style = "background-color: #333"
+        img.style = "background-color: #333";
         img.onclick = function () { copyImageLink(img.src) };
         imagesContainer.appendChild(img);
         toggleDropdownShow(false);
         showDropdown(false);
       });
+      showOptionToggles(imagePaths);
+
+      
 
       // Show the download button if images are shown
       if (imagePaths.length > 0) {
@@ -83,6 +95,89 @@
       document.getElementById("myInput").disabled = false;
     }
 
+    // Function to display options
+      function showOptionToggles(imagePaths) {
+
+        // Separate unique names into lists based on their position in the file name and remove the actor name
+        const nameLists = new Map();
+        const actorNameWithoutSpaces = document.getElementById("myInput").value.replace(/\b\w/g, match => match.toUpperCase()).replace(/\s/g, "");
+        const fullNamesList = imagePaths.map(file => {
+          const fileName = file.split("/").pop(); // Get the file name
+          const actorNameWithoutSpaces = fileName.split(" ")[0]; // Get actor name without spaces
+          const cleanFileName = actorNameWithoutSpaces.replace(/\(.*$/, ""); // Remove everything from the first open bracket
+          return cleanFileName;
+        });
+        fullNamesList.forEach((file) => {
+          const fileNameParts = [actorNameWithoutSpaces];
+          file = file.replace(actorNameWithoutSpaces, "").replace(halfOrcString, halfOrcReplacementString).replace(halfElfString, halfElfReplacementString);
+          fileNameParts.push(...file.split(/(?=[A-Z])/).filter(Boolean).map((part) => part));
+
+          fileNameParts.forEach((part, index) => {
+            if (!nameLists.has(index)) {
+              nameLists.set(index, new Set());
+            }
+            nameLists.get(index).add(part.replace(halfElfReplacementString, halfElfString).replace(halfOrcReplacementString, halfOrcString));
+          });
+        });
+
+        const container = document.getElementById("checkboxContainer");
+        container.innerHTML = ""; // Clear previous checkboxes
+        container.style = "display: flex";
+        nameLists.forEach(options =>{
+          const checkboxSubcontainer = document.createElement("div");
+          options.forEach(option => {
+            const checkbox = document.createElement("input");
+            checkbox.type = "checkbox";
+            checkbox.id = option;
+            checkbox.value = option;
+            checkbox.checked = true;
+            
+            const label = document.createElement("label");
+            label.htmlFor = option;
+            label.appendChild(document.createTextNode(option));
+
+            checkboxSubcontainer.appendChild(checkbox);
+            checkboxSubcontainer.appendChild(label);
+            checkboxSubcontainer.appendChild(document.createElement("br"));
+          });
+          container.appendChild(checkboxSubcontainer);
+
+          checkboxSubcontainer.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
+            checkbox.addEventListener("change", () => {
+              const hideIndizes = [];
+              container.childNodes.forEach(checkboxContainer => {
+                const checkedLabels = Array.from(checkboxContainer.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+                const images = document.getElementById("imagesContainer").getElementsByTagName("img");
+                for (let i = 0; i < images.length; i++) {
+                  const img = images[i];
+                  const imgLabels = img.title; 
+                  if (!checkedLabels.some(label => imgLabels.includes(label))) {
+                    hideIndizes[i] = true;
+                  }
+                  
+                }
+
+                for (let i = 0; i < images.length; i++) {
+                  const img = images[i];
+                  if (hideIndizes[i]) {
+                    img.style.display = "none"; // Hide image
+                  }
+                  else {
+                    img.style.display = ""; // Show image
+                  }
+                }
+
+                
+              });
+              
+              
+            });
+          });
+        });
+          container.childNodes[0].childNodes[0].disabled = true;
+
+        
+      }
     // Initialize dropdown with .txt files
     fetchTxtFiles().then((txtFiles) => {
       // const dropdown = document.getElementById("txtFiles");
@@ -179,7 +274,6 @@
         const imageUrl = image.src;
 
         // await imgFolder.file(imageName, imageBlob);
-        console.log(i)
         var imageFetch = await fetch(imageUrl)
         var imageBlob = await imageFetch.blob()
         // var img = zip.folder("images");

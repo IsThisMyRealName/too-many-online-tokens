@@ -10,5 +10,5 @@ AllosaurusGrassland (7).webp
 AllosaurusJungle (1).webp
 AllosaurusJungle (2).webp
 AllosaurusJungle (3).webp
-AllosaurusVillage.webp
+AllosaurusVillage (1).webp
 Prompts.txt

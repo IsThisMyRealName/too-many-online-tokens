@@ -162,22 +162,18 @@
             
             checkbox.addEventListener("change", () => {
               
-              container.childNodes.forEach(checkboxContainer => {
-                const regex = new RegExp(generateRegex());
-                const images = document.getElementById("imagesContainer").getElementsByTagName("img");
+              const regex = new RegExp(generateRegex());
+              const images = document.getElementById("imagesContainer").getElementsByTagName("img");
 
-                for (let i = 0; i < images.length; i++) {
-                  const img = images[i];
-                  if (img.title.match(regex)) {
-                    img.style.display = ""; // Show image
-                  }
-                  else {
-                    img.style.display = "none"; // Hide image
-                  }
+              for (let i = 0; i < images.length; i++) {
+                const img = images[i];
+                if (img.title.match(regex)) {
+                  img.style.display = ""; // Show image
                 }
-
-                
-              });
+                else {
+                  img.style.display = "none"; // Hide image
+                }
+              }
               
               
             });

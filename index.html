@@ -125,6 +125,22 @@
         container.style = "display: flex";
         nameLists.forEach(options =>{
           const checkboxSubcontainer = document.createElement("div");
+          checkboxSubcontainer.className = "CheckboxSubContainer";
+          //Create Any Checkbox
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = "Any";
+          checkbox.value = "Any";
+          checkbox.checked = true;
+
+          const label = document.createElement("label");
+          label.htmlFor = "Any";
+          label.appendChild(document.createTextNode("Any"));
+
+          checkboxSubcontainer.appendChild(checkbox);
+          checkboxSubcontainer.appendChild(label);
+          checkboxSubcontainer.appendChild(document.createElement("br"));
+
           options.forEach(option => {
             const checkbox = document.createElement("input");
             checkbox.type = "checkbox";
@@ -143,27 +159,20 @@
           container.appendChild(checkboxSubcontainer);
 
           checkboxSubcontainer.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
+            
             checkbox.addEventListener("change", () => {
-              const hideIndizes = [];
+              
               container.childNodes.forEach(checkboxContainer => {
-                const checkedLabels = Array.from(checkboxContainer.querySelectorAll("input[type=checkbox]:checked")).map(checkbox => checkbox.value);
+                const regex = new RegExp(generateRegex());
                 const images = document.getElementById("imagesContainer").getElementsByTagName("img");
-                for (let i = 0; i < images.length; i++) {
-                  const img = images[i];
-                  const imgLabels = img.title; 
-                  if (!checkedLabels.some(label => imgLabels.includes(label))) {
-                    hideIndizes[i] = true;
-                  }
-                  
-                }
 
                 for (let i = 0; i < images.length; i++) {
                   const img = images[i];
-                  if (hideIndizes[i]) {
-                    img.style.display = "none"; // Hide image
+                  if (img.title.match(regex)) {
+                    img.style.display = ""; // Show image
                   }
                   else {
-                    img.style.display = ""; // Show image
+                    img.style.display = "none"; // Hide image
                   }
                 }
 
@@ -178,6 +187,41 @@
 
         
       }
+
+      function generateRegex() {
+          let regex = "";
+
+          const checkboxContainers = document.querySelectorAll(".CheckboxSubContainer");
+
+          checkboxContainers.forEach((container, index) => {
+            const checkedCheckboxes = container.querySelectorAll("input[type='checkbox']:checked");
+
+            if (checkedCheckboxes.length > 0) {
+              regex += "(";
+
+              checkedCheckboxes.forEach((checkbox, i) => {
+                if (i > 0) {
+                  regex += "|"; // OR operator
+                }
+                if (checkbox.value === "Any") {
+                  regex += ".*"; // Match any text
+                } else {
+                  regex += checkbox.value;
+                }
+              });
+
+              regex += ")";
+            }
+
+            if (index < checkboxContainers.length - 1) {
+              regex += ".*"; // Match any text between CheckboxSubContainers
+            }
+          });
+
+          regex += ""; // End of string anchor
+
+          return new RegExp(regex);
+        }
     // Initialize dropdown with .txt files
     fetchTxtFiles().then((txtFiles) => {
       // const dropdown = document.getElementById("txtFiles");

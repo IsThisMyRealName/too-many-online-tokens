@@ -69,6 +69,8 @@ VeteranGnomeFemaleMelee (7).webp
 VeteranGnomeFemaleMelee (8).webp
 VeteranGnomeFemaleMelee (9).webp
 VeteranGnomeMaleMelee (1).webp
+VeteranGnomeMaleMelee (10).webp
+VeteranGnomeMaleMelee (11).webp
 VeteranGnomeMaleMelee (2).webp
 VeteranGnomeMaleMelee (3).webp
 VeteranGnomeMaleMelee (4).webp
@@ -81,9 +83,7 @@ VeteranGnomeMaleRanged (1).webp
 VeteranGnomeMaleRanged (2).webp
 VeteranGnomeMaleRanged (3).webp
 VeteranGnomeMaleRanged (4).webp
-VeteranGnomeMelee (1).webp
-VeteranGnomeMelee (2).webp
-VeteranGnomeRanged (1).webp
+VeteranGnomeMaleRanged (5).webp
 VeteranHalfElfFemaleMelee (1).webp
 VeteranHalfElfFemaleMelee (10).webp
 VeteranHalfElfFemaleMelee (11).webp
@@ -152,6 +152,7 @@ VeteranHalflingMaleMelee (22).webp
 VeteranHalflingMaleMelee (23).webp
 VeteranHalflingMaleMelee (24).webp
 VeteranHalflingMaleMelee (25).webp
+VeteranHalflingMaleMelee (26).webp
 VeteranHalflingMaleMelee (3).webp
 VeteranHalflingMaleMelee (4).webp
 VeteranHalflingMaleMelee (5).webp
@@ -163,8 +164,7 @@ VeteranHalflingMaleRanged (1).webp
 VeteranHalflingMaleRanged (2).webp
 VeteranHalflingMaleRanged (3).webp
 VeteranHalflingMaleRanged (4).webp
-VeteranHalflingMelee (26).webp
-VeteranHalflingRanged (1).webp
+VeteranHalflingMaleRanged (5).webp
 VeteranHalfOrcFemaleMelee (1).webp
 VeteranHalfOrcFemaleMelee (10).webp
 VeteranHalfOrcFemaleMelee (11).webp
@@ -195,9 +195,9 @@ VeteranHalfOrcMaleMelee (6).webp
 VeteranHalfOrcMaleMelee (7).webp
 VeteranHalfOrcMaleMelee (8).webp
 VeteranHalfOrcMaleMelee (9).webp
-VeteranHalfOrcRanged (1).webp
-VeteranHalfOrcRanged (2).webp
-VeteranHalfOrcRanged (3).webp
+VeteranHalfOrcMaleRanged (1).webp
+VeteranHalfOrcMaleRanged (2).webp
+VeteranHalfOrcMaleRanged (3).webp
 VeteranHumanFemaleMelee (1).webp
 VeteranHumanFemaleMelee (10).webp
 VeteranHumanFemaleMelee (11).webp
@@ -214,6 +214,10 @@ VeteranHumanFemaleMelee (20).webp
 VeteranHumanFemaleMelee (21).webp
 VeteranHumanFemaleMelee (22).webp
 VeteranHumanFemaleMelee (23).webp
+VeteranHumanFemaleMelee (24).webp
+VeteranHumanFemaleMelee (25).webp
+VeteranHumanFemaleMelee (26).webp
+VeteranHumanFemaleMelee (27).webp
 VeteranHumanFemaleMelee (3).webp
 VeteranHumanFemaleMelee (4).webp
 VeteranHumanFemaleMelee (5).webp
@@ -234,6 +238,7 @@ VeteranHumanMaleMelee (14).webp
 VeteranHumanMaleMelee (15).webp
 VeteranHumanMaleMelee (16).webp
 VeteranHumanMaleMelee (17).webp
+VeteranHumanMaleMelee (18).webp
 VeteranHumanMaleMelee (2).webp
 VeteranHumanMaleMelee (3).webp
 VeteranHumanMaleMelee (4).webp
@@ -246,11 +251,6 @@ VeteranHumanMaleRanged (1).webp
 VeteranHumanMaleRanged (2).webp
 VeteranHumanMaleRanged (3).webp
 VeteranHumanMaleRanged (4).webp
-VeteranHumanMelee (1).webp
-VeteranHumanMelee (2).webp
-VeteranHumanMelee (3).webp
-VeteranHumanMelee (4).webp
-VeteranHumanMelee (5).webp
 VeteranTieflingFemaleMelee (1).webp
 VeteranTieflingFemaleMelee (10).webp
 VeteranTieflingFemaleMelee (11).webp

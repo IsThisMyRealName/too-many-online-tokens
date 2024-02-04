@@ -105,8 +105,10 @@
           const fileName = file.split("/").pop(); // Get the file name
           const actorNameWithoutSpaces = fileName.split(" ")[0]; // Get actor name without spaces
           const cleanFileName = actorNameWithoutSpaces.replace(/\(.*$/, ""); // Remove everything from the first open bracket
-          return cleanFileName;
+          const cleanFileNameWithoutDragonbornOptions = (cleanFileName.includes("Dragonborn"))?"Dragonborn":cleanFileName;
+          return cleanFileNameWithoutDragonbornOptions;
         });
+
         fullNamesList.forEach((file) => {
           const fileNameParts = [actorNameWithoutSpaces];
           file = file.replace(actorNameWithoutSpaces, "").replace(halfOrcString, halfOrcReplacementString).replace(halfElfString, halfElfReplacementString);
@@ -116,6 +118,7 @@
             if (!nameLists.has(index)) {
               nameLists.set(index, new Set());
             }
+            
             nameLists.get(index).add(part.replace(halfElfReplacementString, halfElfString).replace(halfOrcReplacementString, halfOrcString));
           });
         });

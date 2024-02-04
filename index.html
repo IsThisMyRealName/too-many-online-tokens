@@ -100,7 +100,8 @@
 
         // Separate unique names into lists based on their position in the file name and remove the actor name
         const nameLists = new Map();
-        const actorNameWithoutSpaces = document.getElementById("myInput").value.replace(/\b\w/g, match => match.toUpperCase()).replace(/\s/g, "");
+        const selectedMonsterName = document.getElementById("myInput").value;
+        const selectedMonsterNameWithoutSpaces = selectedMonsterName.replace(/\b\w/g, match => match.toUpperCase()).replace(/\s/g, "");
         const fullNamesList = imagePaths.map(file => {
           const fileName = file.split("/").pop(); // Get the file name
           const actorNameWithoutSpaces = fileName.split(" ")[0]; // Get actor name without spaces
@@ -110,8 +111,8 @@
         });
 
         fullNamesList.forEach((file) => {
-          const fileNameParts = [actorNameWithoutSpaces];
-          file = file.replace(actorNameWithoutSpaces, "").replace(halfOrcString, halfOrcReplacementString).replace(halfElfString, halfElfReplacementString);
+          const fileNameParts = [selectedMonsterName];
+          file = file.replace(selectedMonsterNameWithoutSpaces, "").replace(halfOrcString, halfOrcReplacementString).replace(halfElfString, halfElfReplacementString);
           fileNameParts.push(...file.split(/(?=[A-Z])/).filter(Boolean).map((part) => part));
 
           fileNameParts.forEach((part, index) => {
@@ -126,23 +127,39 @@
         const container = document.getElementById("checkboxContainer");
         container.innerHTML = ""; // Clear previous checkboxes
         container.style = "display: flex";
+        var isFirst = true;
         nameLists.forEach(options =>{
           const checkboxSubcontainer = document.createElement("div");
           checkboxSubcontainer.className = "CheckboxSubContainer";
           //Create Any Checkbox
           const checkbox = document.createElement("input");
+          const label = document.createElement("label");
           checkbox.type = "checkbox";
-          checkbox.id = "Any";
-          checkbox.value = "Any";
+          if(isFirst){
+            checkbox.id = selectedMonsterNameWithoutSpaces;
+            checkbox.value = selectedMonsterNameWithoutSpaces;
+            label.htmlFor = selectedMonsterNameWithoutSpaces;
+            label.appendChild(document.createTextNode(selectedMonsterName));
+          }
+          else{
+            checkbox.id = "Any";
+            checkbox.value = "Any";
+            label.htmlFor = "Any";
+            label.appendChild(document.createTextNode("Any"));
+          }
           checkbox.checked = true;
 
-          const label = document.createElement("label");
-          label.htmlFor = "Any";
-          label.appendChild(document.createTextNode("Any"));
+          
 
           checkboxSubcontainer.appendChild(checkbox);
           checkboxSubcontainer.appendChild(label);
           checkboxSubcontainer.appendChild(document.createElement("br"));
+          container.appendChild(checkboxSubcontainer);
+
+          if(isFirst){
+            isFirst = false;
+            return;
+          }
 
           options.forEach(option => {
             const checkbox = document.createElement("input");
@@ -159,7 +176,6 @@
             checkboxSubcontainer.appendChild(label);
             checkboxSubcontainer.appendChild(document.createElement("br"));
           });
-          container.appendChild(checkboxSubcontainer);
 
           checkboxSubcontainer.querySelectorAll("input[type=checkbox]").forEach(checkbox => {
             

@@ -27,7 +27,8 @@
     <div id="checkboxContainer">
       <!-- Checkboxes will be dynamically added here -->
     </div>
-
+    <input type="text" id="wildcardpath" readonly>
+    <button onclick="copyWildcardPath()">Copy Wildcard Path</button>
     <button id="downloadImagesBtn" style="display:none;">Download Images</button>
     <div id="imagesContainer" class="images-container"></div>
   </div>
@@ -194,7 +195,8 @@
                 }
               }
               
-              
+              console.log(createWildcardPath())
+              document.getElementById("wildcardpath").value = createWildcardPath();
             });
           });
         });
@@ -202,6 +204,21 @@
 
         
       }
+
+      function copyWildcardPath() {
+          // Select the input field
+          const inputField = document.getElementById("wildcardpath");
+
+          // Copy the text inside the input field to the clipboard
+          inputField.select();
+          document.execCommand("copy");
+
+          // Deselect the input field
+          inputField.selectionEnd = inputField.selectionStart;
+
+          // Optionally, provide feedback to the user
+          new Notification("Wildcard path copied to clipboard: " + inputField.value);
+        }
 
       function generateRegex() {
           let regex = "";
@@ -237,6 +254,38 @@
 
           return new RegExp(regex);
         }
+
+        // Function to create a wildcard path based on selected checkboxes
+          const createWildcardPath = () => {
+            let wildcardPath = `modules/too-many-tokens-dnd/${document.getElementById("myInput").value}/`;
+            wildcardPath = wildcardPath.replace(/\*+/g, '*');
+
+            const checkboxContainers = document.querySelectorAll(".CheckboxSubContainer");
+
+            checkboxContainers.forEach((container, index) => {
+              let checkedCheckboxesValues = [];
+              container.querySelectorAll("input[type='checkbox']:checked").forEach((checkbox, index) => {
+                checkedCheckboxesValues[index] = (checkbox.value);
+              });
+
+                if (checkedCheckboxesValues.includes("Any") || checkedCheckboxesValues.length <= 0) {
+                  // If *any is checked, use *
+                  wildcardPath += "*";
+                } else {
+                  if (checkedCheckboxesValues.length == 1) {
+                    wildcardPath += `${checkedCheckboxesValues[0]}`;
+                  } else {
+                    wildcardPath += `{${checkedCheckboxesValues.join(",")}}`;
+                  }
+                }
+            });
+
+            wildcardPath += "*"; // End of string anchor
+            wildcardPath = wildcardPath.replace(/\*+/g, '*');
+
+            return wildcardPath;
+          };
+
     // Initialize dropdown with .txt files
     fetchTxtFiles().then((txtFiles) => {
       // const dropdown = document.getElementById("txtFiles");

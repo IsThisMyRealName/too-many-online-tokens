@@ -83,7 +83,7 @@ button:disabled {
 }
 
 /* The search field */
-#myInput {
+#myInput, #wildcardpath {
     box-sizing: border-box;
     width: 100%;
     padding: 10px 12px;
@@ -93,6 +93,11 @@ button:disabled {
     background-color: #444;
     color: #fff;
     margin-bottom: 10px;
+}
+
+#wildcardpath {
+    max-width: 500px;
+    background-color: #222;
 }
 
 /* The search field when it gets focus/clicked on */

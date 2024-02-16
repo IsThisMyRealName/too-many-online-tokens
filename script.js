@@ -57,7 +57,15 @@ const halfOrcString = "HalfOrc";
       // Hide loading spinner and enable input
       document.getElementById("loadingSpinner").style.display = "none";
       document.getElementById("myInput").disabled = false;
+}
+    
+function replaceAfterFirstDragonborn(inputString) {
+    const index = inputString.indexOf("Dragonborn");
+    if (index !== -1) {
+        return inputString.substring(0, index + "Dragonborn".length);
     }
+    return inputString;
+}
 
     // Function to display options
       function showOptionToggles(imagePaths) {
@@ -70,7 +78,7 @@ const halfOrcString = "HalfOrc";
           const fileName = file.split("/").pop(); // Get the file name
           const actorNameWithoutSpaces = fileName.split(" ")[0]; // Get actor name without spaces
           const cleanFileName = actorNameWithoutSpaces.replace(/\(.*$/, ""); // Remove everything from the first open bracket
-          const cleanFileNameWithoutDragonbornOptions = (cleanFileName.includes("Dragonborn"))?"Dragonborn":cleanFileName;
+          const cleanFileNameWithoutDragonbornOptions = (cleanFileName.includes("Dragonborn"))?replaceAfterFirstDragonborn(actorNameWithoutSpaces):cleanFileName;
           return cleanFileNameWithoutDragonbornOptions;
         });
 

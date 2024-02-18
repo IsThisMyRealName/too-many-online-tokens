@@ -6,6 +6,8 @@ let urlName = params.get("name"); // return commoner, goblin, splicer etc.
 if (system == null || system.length < 1 || unlockedSystems.indexOf(system) < 0) {
   system = "dnd";
 }
+
+
 const halfOrcString = "HalfOrc";
 const halfElfString = "HalfElf";
 const halfOrcReplacementString = "Halforc";
@@ -279,6 +281,10 @@ function replaceAfterFirstDragonborn(inputString) {
         option.onclick = function () { applyTextToInput(option.text) };
       });
       toggleDropdownShow(false);
+      if (urlName != undefined && urlName.length > 0 && txtFiles.indexOf(urlName) >= 0) {
+        document.getElementById("myInput").value = urlName;
+        showImages();
+}
     });
 
 

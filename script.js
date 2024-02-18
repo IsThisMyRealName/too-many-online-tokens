@@ -1,9 +1,9 @@
 let params = new URLSearchParams(window.location.search);
-
+const unlockedSystems = ["dnd"];
 let system = params.get("system"); // return dnd, pf, ep etc.
 let urlName = params.get("name"); // return commoner, goblin, splicer etc.
 
-if (system == null || system.length < 1) {
+if (system == null || system.length < 1 || unlockedSystems.indexOf(system) < 0) {
   system = "dnd";
 }
 const halfOrcString = "HalfOrc";
@@ -19,7 +19,6 @@ const halfElfReplacementString = "Halfelf";
         document.getElementById("txtFilesSearch").style.display = "none";
       }
 }
-console.log(system);
     // Define the base URL for image paths
     const baseUrl =
       `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/`;

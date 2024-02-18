@@ -382,7 +382,7 @@ async function fetchTxtFiles() {
       const response = await fetch(`names\\${system}.txt`);
       const lines = await response.text();
     
-    const txtFiles = lines.split('\r\n');
+    const txtFiles = lines.split('\n');
     return txtFiles;
   }
           

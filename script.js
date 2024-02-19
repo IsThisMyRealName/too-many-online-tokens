@@ -17,9 +17,9 @@ const halfOrcReplacementString = "Halforc";
 const halfElfReplacementString = "Halfelf";
 
 function setUrl() {
-  var url = `index.html\\?system=${system}&name=${document.getElementById(
-    "myInput"
-  )}`;
+  var url = `index.html?system=${system}&name=${
+    document.getElementById("myInput").value
+  }`;
   history.pushState(null, null, url);
 }
 
@@ -73,6 +73,7 @@ async function showImages() {
   // Hide loading spinner and enable input
   document.getElementById("loadingSpinner").style.display = "none";
   document.getElementById("myInput").disabled = false;
+  setUrl();
 }
 
 function replaceAfterFirstDragonborn(inputString) {

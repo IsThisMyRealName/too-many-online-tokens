@@ -16,19 +16,18 @@ const halfElfString = "HalfElf";
 const halfOrcReplacementString = "Halforc";
 const halfElfReplacementString = "Halfelf";
 
-    function showDropdown(shouldShow){
-      if(shouldShow){
-        document.getElementById("txtFilesSearch").style.display = "";
-      }
-      else{
-        document.getElementById("txtFilesSearch").style.display = "none";
-      }
+function setUrl() {
+  var url = `index.html\\?system=${system}&name=${document.getElementById(
+    "myInput"
+  )}`;
+  history.pushState(null, null, url);
+}
+
 function showDropdown(shouldShow) {
   if (shouldShow) {
     document.getElementById("txtFilesSearch").style.display = "";
   } else {
     document.getElementById("txtFilesSearch").style.display = "none";
-    history.pushState(null, null, "TEST");
   }
 }
 // Define the base URL for image paths

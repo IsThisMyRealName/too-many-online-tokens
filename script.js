@@ -1,5 +1,5 @@
 let params = new URLSearchParams(window.location.search);
-const unlockedSystems = ["dnd"];
+const unlockedSystems = ["dnd", "pf"];
 let system = params.get("system"); // return dnd, pf, ep etc.
 let urlName = params.get("name"); // return commoner, goblin, splicer etc.
 

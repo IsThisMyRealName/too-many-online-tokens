@@ -1,21 +1,22 @@
-Animated Statue (1).webp
-Animated Statue (10).webp
-Animated Statue (11).webp
-Animated Statue (12).webp
-Animated Statue (13).webp
-Animated Statue (14).webp
-Animated Statue (15).webp
-Animated Statue (16).webp
-Animated Statue (17).webp
-Animated Statue (18).webp
-Animated Statue (19).webp
-Animated Statue (2).webp
-Animated Statue (20).webp
-Animated Statue (3).webp
-Animated Statue (4).webp
-Animated Statue (5).webp
-Animated Statue (6).webp
-Animated Statue (7).webp
-Animated Statue (8).webp
-Animated Statue (9).webp
+AnimatedStatue (1).webp
+AnimatedStatue (10).webp
+AnimatedStatue (11).webp
+AnimatedStatue (12).webp
+AnimatedStatue (13).webp
+AnimatedStatue (14).webp
+AnimatedStatue (15).webp
+AnimatedStatue (16).webp
+AnimatedStatue (17).webp
+AnimatedStatue (18).webp
+AnimatedStatue (19).webp
+AnimatedStatue (2).webp
+AnimatedStatue (20).webp
+AnimatedStatue (21).webp
+AnimatedStatue (3).webp
+AnimatedStatue (4).webp
+AnimatedStatue (5).webp
+AnimatedStatue (6).webp
+AnimatedStatue (7).webp
+AnimatedStatue (8).webp
+AnimatedStatue (9).webp
 Prompts.txt

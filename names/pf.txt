@@ -2,3 +2,4 @@ Aasimar Redeemer
 Animated Armor
 Animated Broom
 Animated Statue
+Arbiter

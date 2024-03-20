@@ -13,3 +13,6 @@ Boggard Shaman
 Boggard Warrior
 Brine Shark
 Bugbear Thug
+Bugbear Tormentor
+Bunyip
+Cacodaemon

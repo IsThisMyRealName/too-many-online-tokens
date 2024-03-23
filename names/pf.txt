@@ -17,6 +17,7 @@ Bugbear Tormentor
 Bunyip
 Cacodaemon
 Caligni Creeper
+Caligni Dancer
 Cassisian
 Catfolk Pouncer
 Centaur

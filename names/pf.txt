@@ -16,3 +16,6 @@ Bugbear Thug
 Bugbear Tormentor
 Bunyip
 Cacodaemon
+Cassisian
+Catfolk Pouncer
+Centaur

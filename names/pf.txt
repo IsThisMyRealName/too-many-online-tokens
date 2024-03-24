@@ -26,3 +26,5 @@ Centipede Swarm
 Cinder Rat
 Cloaker
 Cockatrice
+Cyclops
+Dandasuka

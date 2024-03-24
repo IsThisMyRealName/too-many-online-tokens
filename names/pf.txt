@@ -18,6 +18,11 @@ Bunyip
 Cacodaemon
 Caligni Creeper
 Caligni Dancer
+Caligni Stalker
 Cassisian
 Catfolk Pouncer
 Centaur
+Centipede Swarm
+Cinder Rat
+Cloaker
+Cockatrice

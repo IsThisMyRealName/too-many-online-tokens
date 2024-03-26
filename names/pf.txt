@@ -28,3 +28,7 @@ Cloaker
 Cockatrice
 Cyclops
 Dandasuka
+Deep Gnome Rockwarden
+Deep Gnome Scout
+Deep Gnome Warrior
+Deinonychus

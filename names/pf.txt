@@ -32,3 +32,7 @@ Deep Gnome Rockwarden
 Deep Gnome Scout
 Deep Gnome Warrior
 Deinonychus
+Dero Magister
+Dero Stalker
+Dero Strangler
+Dhampir Wizard

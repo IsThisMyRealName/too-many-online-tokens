@@ -13,8 +13,10 @@ if (
 
 const halfOrcString = "HalfOrc";
 const halfElfString = "HalfElf";
+const nsfwString = "NSFW";
 const halfOrcReplacementString = "Halforc";
 const halfElfReplacementString = "Halfelf";
+const nsfwReplacementString = "Nsfw";
 
 function setUrl() {
   var url = `index.html?system=${system}&name=${
@@ -109,7 +111,8 @@ function showOptionToggles(imagePaths) {
     file = file
       .replace(selectedMonsterNameWithoutSpaces, "")
       .replace(halfOrcString, halfOrcReplacementString)
-      .replace(halfElfString, halfElfReplacementString);
+      .replace(halfElfString, halfElfReplacementString)
+      .replace(nsfwString, nsfwReplacementString);
     fileNameParts.push(
       ...file
         .split(/(?=[A-Z])/)
@@ -128,6 +131,7 @@ function showOptionToggles(imagePaths) {
           part
             .replace(halfElfReplacementString, halfElfString)
             .replace(halfOrcReplacementString, halfOrcString)
+            .replace(nsfwReplacementString, nsfwString)
         );
     });
   });

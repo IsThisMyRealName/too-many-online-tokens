@@ -53,3 +53,24 @@ Flash Beetle
 Fungus Leshy
 Gancanagh
 Gargolye
+Gelatinous Cube
+Ghast
+Giant Bat
+Giant Centipede
+Giant Eagle
+Giant Frilled Lizard
+Giant Gecko
+Giant Mantis
+Giant Monitor Lizard
+Giant Moray Eel
+Giant Scorpion
+Giant Stag Beetle
+Giant Viper
+Giant Wasp
+Gibbering Mouther
+Gnoll Cultist
+Gnoll Hunter
+Gnoll Sergant
+Goblin Commando
+Goblin Dog
+Goblin Pyro

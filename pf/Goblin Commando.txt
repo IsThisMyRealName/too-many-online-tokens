@@ -1,0 +1,25 @@
+GoblinCommandoFemale (1).webp
+GoblinCommandoFemale (10).webp
+GoblinCommandoFemale (11).webp
+GoblinCommandoFemale (2).webp
+GoblinCommandoFemale (3).webp
+GoblinCommandoFemale (4).webp
+GoblinCommandoFemale (5).webp
+GoblinCommandoFemale (6).webp
+GoblinCommandoFemale (7).webp
+GoblinCommandoFemale (8).webp
+GoblinCommandoFemale (9).webp
+GoblinCommandoMale (1).webp
+GoblinCommandoMale (10).webp
+GoblinCommandoMale (11).webp
+GoblinCommandoMale (12).webp
+GoblinCommandoMale (13).webp
+GoblinCommandoMale (2).webp
+GoblinCommandoMale (3).webp
+GoblinCommandoMale (4).webp
+GoblinCommandoMale (5).webp
+GoblinCommandoMale (6).webp
+GoblinCommandoMale (7).webp
+GoblinCommandoMale (8).webp
+GoblinCommandoMale (9).webp
+Prompts.txt

@@ -55,6 +55,7 @@ Gancanagh
 Gargolye
 Gelatinous Cube
 Ghast
+Ghost
 Giant Bat
 Giant Centipede
 Giant Eagle

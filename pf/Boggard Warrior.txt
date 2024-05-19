@@ -11,3 +11,4 @@ BoggardWarrior (6).webp
 BoggardWarrior (7).webp
 BoggardWarrior (8).webp
 BoggardWarrior (9).webp
+Prompts.txt

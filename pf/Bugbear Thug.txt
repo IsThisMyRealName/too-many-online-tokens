@@ -40,3 +40,4 @@ BugbearThugForestMale (6).webp
 BugbearThugForestMale (7).webp
 BugbearThugForestMale (8).webp
 BugbearThugForestMale (9).webp
+Prompts.txt

@@ -31,3 +31,4 @@ Barbazu (6).webp
 Barbazu (7).webp
 Barbazu (8).webp
 Barbazu (9).webp
+Prompts.txt

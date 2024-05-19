@@ -20,3 +20,4 @@ BoggardScout (6).webp
 BoggardScout (7).webp
 BoggardScout (8).webp
 BoggardScout (9).webp
+Prompts.txt

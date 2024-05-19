@@ -60,3 +60,4 @@ Bloodseeker (62).webp
 Bloodseeker (7).webp
 Bloodseeker (8).webp
 Bloodseeker (9).webp
+Prompts.txt

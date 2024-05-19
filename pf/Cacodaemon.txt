@@ -30,3 +30,4 @@ Cacodaemon (6).webp
 Cacodaemon (7).webp
 Cacodaemon (8).webp
 Cacodaemon (9).webp
+Prompts.txt

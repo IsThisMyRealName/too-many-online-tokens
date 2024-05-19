@@ -38,3 +38,4 @@ ArborealWardenOak (6).webp
 ArborealWardenOak (7).webp
 ArborealWardenOak (8).webp
 ArborealWardenOak (9).webp
+Prompts.txt

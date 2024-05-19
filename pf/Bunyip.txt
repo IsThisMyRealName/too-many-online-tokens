@@ -17,3 +17,4 @@ BunyipUnderwater (4).webp
 BunyipUnderwater (5).webp
 BunyipUnderwater (6).webp
 BunyipUnderwater (7).webp
+Prompts.txt

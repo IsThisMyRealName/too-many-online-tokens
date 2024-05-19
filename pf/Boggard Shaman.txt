@@ -17,3 +17,4 @@ BoggardShaman (6).webp
 BoggardShaman (7).webp
 BoggardShaman (8).webp
 BoggardShaman (9).webp
+Prompts.txt

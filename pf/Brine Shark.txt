@@ -18,3 +18,4 @@ BrineShark (6).webp
 BrineShark (7).webp
 BrineShark (8).webp
 BrineShark (9).webp
+Prompts.txt

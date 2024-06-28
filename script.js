@@ -73,10 +73,7 @@ async function searchAll() {
       }
     }
   }
-
-  console.log(foundNames);
   clearImages();
-  console.log(foundNames.size);
 
   if (foundNames.size > 0) {
     for (const [key, value] of foundNames.entries()) {
@@ -383,7 +380,6 @@ fetchTxtFiles().then((txtFiles) => {
   });
   toggleDropdownShow(false);
   if (searchTerm != undefined && searchTerm.length >= 3) {
-    console.log("searching for images");
     searchAll();
   } else if (
     urlName != undefined &&

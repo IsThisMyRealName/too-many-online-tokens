@@ -1,6 +1,7 @@
 let params = new URLSearchParams(window.location.search);
 const unlockedSystems = ["dnd", "pf"];
 let system = params.get("system"); // return dnd, pf, ep etc.
+let searchTerm = params.get("searchTerm"); //custom search
 let urlName = params.get("name"); // return commoner, goblin, splicer etc.
 
 if (
@@ -9,6 +10,14 @@ if (
   unlockedSystems.indexOf(system) < 0
 ) {
   system = "dnd";
+}
+
+if (searchTerm == null || searchTerm.length < 1) {
+  searchTerm = "";
+}
+
+if (searchTerm.length > 0) {
+  urlName = ""; //if custom search, no specific monster
 }
 
 const halfOrcString = "HalfOrc";
@@ -42,16 +51,62 @@ async function fetchImagePaths(fileName) {
   return lines.split("\n").filter((line) => line.trim().endsWith(".webp"));
 }
 
-// Function to display images
-async function showImages() {
-  const selectedFileName = document.getElementById("myInput").value;
-  const imagePaths = await fetchImagePaths(`${selectedFileName}.txt`);
+async function searchAll() {
+  if (searchTerm.length < 3) {
+    console.error("Please search for at least 3 characters");
+    return;
+  }
+
+  const foundNames = new Map();
+  const txtFiles = await fetchTxtFiles();
+
+  for (const fileName of txtFiles) {
+    const imagePaths = await fetchImagePaths(`${fileName}.txt`);
+    if (new RegExp(searchTerm, "i").test(fileName)) {
+      foundNames.set(fileName, imagePaths);
+    } else {
+      const matchedImagePaths = imagePaths.filter((path) =>
+        new RegExp(searchTerm, "i").test(path)
+      );
+      if (matchedImagePaths.length > 0) {
+        foundNames.set(fileName, matchedImagePaths);
+      }
+    }
+  }
+
+  console.log(foundNames);
+  clearImages();
+  console.log(foundNames.size);
+
+  if (foundNames.size > 0) {
+    for (const [key, value] of foundNames.entries()) {
+      showHeader(key);
+      addImagesFromPaths(value, key);
+      showOptionToggles(value);
+    }
+  } else {
+    showHeader(`No images found for search term "${searchTerm}"`);
+  }
+}
+
+function clearImages() {
   const imagesContainer = document.getElementById("imagesContainer");
   imagesContainer.innerHTML = ""; // Clear previous images
+}
 
+function showHeader(fileName) {
+  const imagesContainer = document.getElementById("imagesContainer");
+  // Create and append header element
+  const header = document.createElement("h2");
+  header.textContent = fileName;
+  imagesContainer.appendChild(header);
+}
+
+function addImagesFromPaths(imagePaths, fileName) {
+  const imagesContainer = document.getElementById("imagesContainer");
   imagePaths.forEach((path) => {
     const img = document.createElement("img");
-    img.src = baseUrl + selectedFileName.replace(" ", "%20") + "/" + path;
+    img.src = baseUrl + fileName.replace(" ", "%20") + "/" + path;
     img.title = path;
     img.width = 256;
     img.height = 256;
@@ -63,6 +118,15 @@ async function showImages() {
     toggleDropdownShow(false);
     showDropdown(false);
   });
+}
+
+// Function to display images
+async function showImages() {
+  const selectedFileName = document.getElementById("myInput").value;
+  const imagePaths = await fetchImagePaths(`${selectedFileName}.txt`);
+  clearImages();
+  showHeader(selectedFileName);
+  addImagesFromPaths(imagePaths, selectedFileName);
   showOptionToggles(imagePaths);
 
   // Show the download button if images are shown
@@ -318,7 +382,10 @@ fetchTxtFiles().then((txtFiles) => {
     };
   });
   toggleDropdownShow(false);
-  if (
+  if (searchTerm != undefined && searchTerm.length >= 3) {
+    console.log("searching for images");
+    searchAll();
+  } else if (
     urlName != undefined &&
     urlName.length > 0 &&
     txtFiles.indexOf(urlName) >= 0

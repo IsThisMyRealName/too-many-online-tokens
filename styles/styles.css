@@ -69,6 +69,11 @@ button:disabled {
     flex-wrap: wrap;
 }
 
+.images-container h2{
+    text-align: center;
+    flex: 1 1 100%;
+}
+
 /* Additional styles for the dropdown search functionality */
 .select2-selection--single {
     border: none;

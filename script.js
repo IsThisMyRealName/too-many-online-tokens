@@ -77,7 +77,6 @@ async function searchAll() {
 
   if (foundNames.size > 0) {
     for (const [key, value] of foundNames.entries()) {
-      showHeader(key);
       addImagesFromPaths(value, key);
       showOptionToggles(value);
     }
@@ -91,16 +90,37 @@ function clearImages() {
   imagesContainer.innerHTML = ""; // Clear previous images
 }
 
-function showHeader(fileName) {
+function showHeader(fileName, parent = null) {
   const imagesContainer = document.getElementById("imagesContainer");
   // Create and append header element
   const header = document.createElement("h2");
   header.textContent = fileName;
-  imagesContainer.appendChild(header);
+  if (parent == null) {
+    imagesContainer.appendChild(header);
+  } else {
+    parent.appendChild(header);
+  }
 }
 
 function addImagesFromPaths(imagePaths, fileName) {
   const imagesContainer = document.getElementById("imagesContainer");
+  const container = document.createElement(`imagesSubContainer`);
+  const headerRow = document.createElement("headerRow");
+
+  container.classList.add(["images-container"]);
+  headerRow.classList.add(["header-row"]);
+
+  imagesContainer.appendChild(container);
+  container.appendChild(headerRow);
+  const toggleButton = document.createElement("toggleButton");
+  toggleButton.classList = ["toggle-button"];
+  headerRow.appendChild(toggleButton);
+  toggleButton.addEventListener("click", function () {
+    toggleButton.classList.toggle("open");
+    container.classList.toggle("minimized");
+  });
+
+  showHeader(fileName, headerRow);
   imagePaths.forEach((path) => {
     const img = document.createElement("img");
     img.src = baseUrl + fileName.replace(" ", "%20") + "/" + path;
@@ -111,7 +131,7 @@ function addImagesFromPaths(imagePaths, fileName) {
     img.onclick = function () {
       copyImageLink(img.src);
     };
-    imagesContainer.appendChild(img);
+    container.appendChild(img);
     toggleDropdownShow(false);
     showDropdown(false);
   });
@@ -418,7 +438,7 @@ function applyTextToInput(text) {
 }
 
 function filterFunction() {
-  var input, filter, ul, li, a, i;
+  var input, filter, a, i;
   input = document.getElementById("myInput");
   filter = input.value.toUpperCase();
   div = document.getElementById("txtFilesSearch");
@@ -432,6 +452,12 @@ function filterFunction() {
       a[i].style.display = "none";
     }
   }
+}
+
+function searchAllFromInput() {
+  var input = document.getElementById("searchAll");
+  searchTerm = input.value;
+  searchAll();
 }
 
 // Function to copy the image link

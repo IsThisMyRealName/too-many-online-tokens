@@ -67,11 +67,22 @@ button:disabled {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    flex: 1 1 100%;
 }
 
 .images-container h2{
     text-align: center;
+}
+
+.header-row {
     flex: 1 1 100%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+}
+
+.minimized img {
+    display: none;
 }
 
 /* Additional styles for the dropdown search functionality */
@@ -88,7 +99,7 @@ button:disabled {
 }
 
 /* The search field */
-#myInput, #wildcardpath {
+#myInput, #wildcardpath, #searchAll {
     box-sizing: border-box;
     width: 100%;
     padding: 10px 12px;
@@ -166,4 +177,34 @@ button:disabled {
     to {
         transform: rotate(360deg);
     }
+}
+
+
+/* Base styles for the toggle button */
+.toggle-button {
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    outline: none;
+    transition: transform 0.3s ease;
+    align-content: center;
+}
+
+/* Styles for the triangle pointing right (minimized state) */
+.toggle-button::before {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    border-left: 7px solid transparent;
+    border-right: 7px solid transparent;
+    border-top: 10px solid white;
+    transition: transform 0.3s ease;
+}
+
+/* Styles for the triangle pointing down (open state) */
+.toggle-button.open::before {
+    transform: rotate(-90deg);
 }

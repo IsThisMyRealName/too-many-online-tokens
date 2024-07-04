@@ -75,3 +75,12 @@ Gnoll Sergant
 Goblin Commando
 Goblin Dog
 Goblin Pyro
+Goblin War Chanter
+Leopard
+Lion
+Living Landslide
+Living Waterfall
+Living Whirlwind
+Living Wildfire
+Merfolk Warrior
+Merfolk Wavecaller

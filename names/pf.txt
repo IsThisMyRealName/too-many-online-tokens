@@ -93,6 +93,6 @@ Orc Commander
 Orc Scrapper
 Orc Veteran
 Pegasus
+Pixie
 Plague Zombie
 Poltergeist
-Sprite

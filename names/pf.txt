@@ -110,3 +110,14 @@ Sewer Ooze
 Sinspawn
 Skeletal Champion
 Skeletal Giant
+Slurk
+Snapping Flytrap
+Sod Hound
+Soulbound Doll
+Tengu Sneak
+Troll
+Velociraptor
+Void Worm
+War Pony
+Zephyr Hawk
+Zombie Brute

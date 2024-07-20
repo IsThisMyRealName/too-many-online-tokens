@@ -1,16 +1,26 @@
+Aapoph Serpentfolk
 Aasimar Redeemer
+Aiuvarin Elementalist
 Animated Armor
 Animated Broom
 Animated Statue
 Arbiter
 Arboreal Warden
+Army Ant Swarm
+Athamaru
+Azarketi Crab Catcher
+Azuretzi
 Ball Python
 Barbazu
+Barghest
 Basilisk
 Bloodseeker
 Boggard Scout
 Boggard Shaman
 Boggard Warrior
+Bogwid
+Bottlenose Dolphin
+Brimorak
 Brine Shark
 Bugbear Thug
 Bugbear Tormentor
@@ -23,9 +33,12 @@ Cassisian
 Catfolk Pouncer
 Centaur
 Centipede Swarm
+Chupacabra
 Cinder Rat
 Cloaker
 Cockatrice
+Coil Spy
+Compsognathus
 Cyclops
 Dandasuka
 Deep Gnome Rockwarden
@@ -38,6 +51,8 @@ Dero Strangler
 Dhampir Wizard
 Djinn
 Doppelganger
+Draxie
+Dromaar Mountaineer
 Drow Fighter
 Drow Priestess
 Dryad
@@ -45,9 +60,13 @@ Duergar Bombardier
 Duergar Sharpshooter
 Duergar Taskmaster
 Duskwalker Ghost Hunter
+Dwarf Stonecaster
+Dwarf Warrior
+Electric Eel
+Elf Ranger
 Ether Spider
 Faceless Stalker
-Fairy Dragon
+Fey Dragonet
 Fire Drake
 Flash Beetle
 Fungus Leshy

@@ -99,6 +99,10 @@ Goblin Commando
 Goblin Dog
 Goblin Pyro
 Goblin War Chanter
+Great White Shark
+Grindylow
+Grizzly Bear
+Grothlut
 Leopard
 Lion
 Living Landslide

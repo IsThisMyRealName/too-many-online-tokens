@@ -75,8 +75,10 @@ Gargolye
 Gelatinous Cube
 Ghast
 Ghost
+Giant Ant
 Giant Bat
 Giant Centipede
+Giant Crawling Hand
 Giant Eagle
 Giant Frilled Lizard
 Giant Gecko
@@ -88,9 +90,11 @@ Giant Stag Beetle
 Giant Viper
 Giant Wasp
 Gibbering Mouther
+Globster
 Gnoll Cultist
 Gnoll Hunter
 Gnoll Sergant
+Gnome Bard
 Goblin Commando
 Goblin Dog
 Goblin Pyro

@@ -116,6 +116,8 @@ Kholo Bonekeeper
 Kholo Hunter
 Kholo Sergeant
 Kobold Cavern Mage
+Kobold Scout
+Kobold Warrior
 Leopard
 Lion
 Living Landslide

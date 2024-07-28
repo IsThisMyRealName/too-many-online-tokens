@@ -91,18 +91,31 @@ Giant Viper
 Giant Wasp
 Gibbering Mouther
 Globster
-Gnoll Cultist
-Gnoll Hunter
-Gnoll Sergant
 Gnome Bard
 Goblin Commando
 Goblin Dog
 Goblin Pyro
 Goblin War Chanter
+Gorilla
 Great White Shark
 Grindylow
 Grizzly Bear
 Grothlut
+Hafling Streetwatcher
+Halfling Troublemaker
+Harpy
+Hell Hound
+Herexen
+Hippocampus
+Hobgoblin Archer
+Hobgoblin Warrior
+Homunculus
+Imp
+Jinkin
+Kholo Bonekeeper
+Kholo Hunter
+Kholo Sergeant
+Kobold Cavern Mage
 Leopard
 Lion
 Living Landslide

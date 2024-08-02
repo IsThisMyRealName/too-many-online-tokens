@@ -1,5 +1,4 @@
 Aapoph Serpentfolk
-Aasimar Redeemer
 Aiuvarin Elementalist
 Animated Armor
 Animated Broom
@@ -10,7 +9,6 @@ Army Ant Swarm
 Athamaru
 Azarketi Crab Catcher
 Azuretzi
-Ball Python
 Barbazu
 Barghest
 Basilisk
@@ -118,12 +116,16 @@ Kholo Sergeant
 Kobold Cavern Mage
 Kobold Scout
 Kobold Warrior
+Larval Ofalth
+Lawbringer Warpriest
 Leopard
 Lion
 Living Landslide
 Living Waterfall
 Living Whirlwind
 Living Wildfire
+Lizardfolk Defender
+Lizardfolk Scout
 Merfolk Warrior
 Merfolk Wavecaller
 Naiad
@@ -140,6 +142,7 @@ Plague Zombie
 Poltergeist
 Poracha
 Pugwampi
+Python
 Quasit
 Ratfolk Grenadier
 Redcap

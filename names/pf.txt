@@ -9,31 +9,27 @@ Army Ant Swarm
 Athamaru
 Azarketi Crab Catcher
 Azuretzi
-Barbazu
 Barghest
 Basilisk
-Bloodseeker
 Boggard Scout
-Boggard Shaman
+Boggard Swampseer
 Boggard Warrior
 Bogwid
 Bottlenose Dolphin
 Brimorak
 Brine Shark
-Bugbear Thug
+Bugbear Prowler
 Bugbear Tormentor
-Bunyip
 Cacodaemon
-Caligni Creeper
 Caligni Dancer
-Caligni Stalker
+Caligni Hunter
+Caligni Skulker
 Cassisian
 Catfolk Pouncer
-Centaur
+Centaur Herbalist
 Centipede Swarm
 Chupacabra
 Cinder Rat
-Cloaker
 Cockatrice
 Coil Spy
 Compsognathus
@@ -118,6 +114,7 @@ Kobold Scout
 Kobold Warrior
 Larval Ofalth
 Lawbringer Warpriest
+Lemure
 Leopard
 Lion
 Living Landslide
@@ -126,8 +123,11 @@ Living Whirlwind
 Living Wildfire
 Lizardfolk Defender
 Lizardfolk Scout
+Lizardfolk Stargazer
+Lyrakien
 Merfolk Warrior
 Merfolk Wavecaller
+Mitflit
 Naiad
 Nosoi
 Ochre Jelly
@@ -136,11 +136,16 @@ Ogre Warrior
 Orc Commander
 Orc Scrapper
 Orc Veteran
+Orca
 Pegasus
+PhantomKnight
+Pipefox
+Pitborn Adept
 Pixie
 Plague Zombie
 Poltergeist
 Poracha
+Pteranodon
 Pugwampi
 Python
 Quasit
@@ -163,6 +168,7 @@ Tengu Sneak
 Troll
 Velociraptor
 Void Worm
+Vordine
 War Pony
 Zephyr Hawk
 Zombie Brute

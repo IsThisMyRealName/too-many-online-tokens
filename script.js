@@ -11,6 +11,7 @@ if (
 ) {
   system = "dnd";
 }
+document.title = `Too-Many-Tokens-${system.toUpperCase()}`;
 
 if (searchTerm == null || searchTerm.length < 1) {
   searchTerm = "";

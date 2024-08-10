@@ -142,7 +142,7 @@ async function showImages() {
   const selectedFileName = document.getElementById("myInput").value;
   const imagePaths = await fetchImagePaths(`${selectedFileName}.txt`);
   clearImages();
-  showHeader(selectedFileName);
+  // showHeader(selectedFileName);
   addImagesFromPaths(imagePaths, selectedFileName);
   showOptionToggles(imagePaths);
 

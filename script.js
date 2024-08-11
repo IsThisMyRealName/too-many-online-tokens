@@ -521,19 +521,21 @@ document
 
     for (let i = 0; i < images.length; i++) {
       const image = images[i];
-      const imageName = image.title;
+      const imageName = image.title.replace(`\r`, ``);
       const imageUrl = image.src;
 
-      // await imgFolder.file(imageName, imageBlob);
-      var imageFetch = await fetch(imageUrl);
-      var imageBlob = await imageFetch.blob();
-      // var img = zip.folder("images");
-      // loading a file and add it in a zip file
-      zip.file(imageName, imageBlob, { binary: true });
+      // Only include images that are not set to display="false"
+      if (image.style.display !== "none" && image.style.display !== "false") {
+        var imageFetch = await fetch(imageUrl);
+        var imageBlob = await imageFetch.blob();
+        zip.file(imageName, imageBlob, { binary: true });
+      }
     }
-
+    var zipName;
+    if (searchTerm.length >= 3) zipName = searchTerm;
+    else zipName = urlName;
     zip.generateAsync({ type: "blob" }).then((content) => {
-      saveAs(content, `${document.getElementById("myInput").value}.zip`);
+      saveAs(content, `${zipName}.zip`);
     });
   });
 

@@ -63,28 +63,50 @@ async function fetchImagePaths(fileName) {
   return lines.split("\n").filter((line) => line.trim().endsWith(".webp"));
 }
 
+async function fetchImagePaths(fileName) {
+  const response = await fetch(`${system}/${fileName}`);
+  const lines = await response.text();
+  return lines.split("\n").filter((line) => line.trim().endsWith(".webp"));
+}
+
 async function searchAll() {
   if (searchTerm.length < 3) {
     console.error("Please search for at least 3 characters");
     return;
   }
+
   const foundNames = new Map();
   const txtFiles = await fetchTxtFiles();
   document.getElementById("searchAll").value = searchTerm;
 
-  for (const fileName of txtFiles) {
-    const imagePaths = await fetchImagePaths(`${fileName}.txt`);
-    if (new RegExp(searchTerm, "i").test(fileName)) {
-      foundNames.set(fileName, imagePaths);
-    } else {
-      const matchedImagePaths = imagePaths.filter((path) =>
-        new RegExp(searchTerm, "i").test(path)
-      );
+  let totalImagesFound = 0;
+  // const countDisplay = document.getElementById("imageCount");
+  // countDisplay.textContent = `Images found: ${totalImagesFound}`;
+  console.log(`Images found: ${totalImagesFound}`);
+
+  // Process files in parallel using Promise.all
+  await Promise.all(
+    txtFiles.map(async (fileName) => {
+      const imagePaths = await fetchImagePaths(`${fileName}.txt`);
+      let matchedImagePaths = [];
+
+      if (new RegExp(searchTerm, "i").test(fileName)) {
+        matchedImagePaths = imagePaths;
+      } else {
+        matchedImagePaths = imagePaths.filter((path) =>
+          new RegExp(searchTerm, "i").test(path)
+        );
+      }
+
       if (matchedImagePaths.length > 0) {
         foundNames.set(fileName, matchedImagePaths);
+        totalImagesFound += matchedImagePaths.length;
+        // countDisplay.textContent = `Images found: ${totalImagesFound}`;
+        console.log(`Images found: ${totalImagesFound}`);
       }
-    }
-  }
+    })
+  );
+
   clearImages();
 
   if (foundNames.size > 0) {
@@ -98,7 +120,10 @@ async function searchAll() {
   } else {
     showHeader(`No images found for search term "${searchTerm}"`);
   }
+
   showDownloadButton();
+  // countDisplay.textContent = `Search complete. Total images found: ${totalImagesFound}`;
+  console.log(`Images found: ${totalImagesFound}`);
 }
 
 function clearImages() {

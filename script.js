@@ -3,6 +3,8 @@ const unlockedSystems = ["dnd", "pf"];
 let system = params.get("system"); // return dnd, pf, ep etc.
 let searchTerm = params.get("searchTerm"); //custom search
 let urlName = params.get("name"); // return commoner, goblin, splicer etc.
+let tags = params.get("tags");
+var imageFound = false;
 
 if (
   system == null ||
@@ -19,6 +21,7 @@ if (searchTerm == null || searchTerm.length < 1) {
 
 if (searchTerm.length > 0) {
   urlName = ""; //if custom search, no specific monster
+  searchAll();
 }
 
 const halfOrcString = "HalfOrc";
@@ -29,16 +32,24 @@ const halfElfReplacementString = "Halfelf";
 const nsfwReplacementString = "Nsfw";
 
 function setUrl() {
-  var url = `index.html?system=${system}&name=${
-    document.getElementById("myInput").value
-  }`;
+  var url = `index.html?system=${system}`;
+  if (searchTerm.length >= 3) {
+    url += `&searchTerm=${searchTerm}`;
+  } else if (urlName.length > 0) {
+    url += `&name=${urlName}`;
+  }
+  //Tags into URL
+
   history.pushState(null, null, url);
 }
 
-function showDropdown(shouldShow) {
+function showDropdown(shouldShow, force = false) {
   if (shouldShow) {
     document.getElementById("txtFilesSearch").style.display = "";
-  } else {
+  } else if (
+    force ||
+    !document.getElementById("txtFilesSearch").matches(":hover")
+  ) {
     document.getElementById("txtFilesSearch").style.display = "none";
   }
 }
@@ -57,9 +68,9 @@ async function searchAll() {
     console.error("Please search for at least 3 characters");
     return;
   }
-
   const foundNames = new Map();
   const txtFiles = await fetchTxtFiles();
+  document.getElementById("searchAll").value = searchTerm;
 
   for (const fileName of txtFiles) {
     const imagePaths = await fetchImagePaths(`${fileName}.txt`);
@@ -81,14 +92,19 @@ async function searchAll() {
       addImagesFromPaths(value, key);
       showOptionToggles(value);
     }
+    urlName = "";
+    document.getElementById("myInput").value = urlName;
+    setUrl();
   } else {
     showHeader(`No images found for search term "${searchTerm}"`);
   }
+  showDownloadButton();
 }
 
 function clearImages() {
   const imagesContainer = document.getElementById("imagesContainer");
   imagesContainer.innerHTML = ""; // Clear previous images
+  imageFound = false;
 }
 
 function showHeader(fileName, parent = null) {
@@ -104,6 +120,7 @@ function showHeader(fileName, parent = null) {
 }
 
 function addImagesFromPaths(imagePaths, fileName) {
+  if (imagePaths.length > 0) imageFound = true;
   const imagesContainer = document.getElementById("imagesContainer");
   const container = document.createElement(`imagesSubContainer`);
   const headerRow = document.createElement("headerRow");
@@ -134,8 +151,9 @@ function addImagesFromPaths(imagePaths, fileName) {
     };
     container.appendChild(img);
     toggleDropdownShow(false);
-    showDropdown(false);
+    showDropdown(false, true);
   });
+  showDownloadButton();
 }
 
 // Function to display images
@@ -147,17 +165,23 @@ async function showImages() {
   addImagesFromPaths(imagePaths, selectedFileName);
   showOptionToggles(imagePaths);
 
-  // Show the download button if images are shown
-  if (imagePaths.length > 0) {
-    document.getElementById("downloadImagesBtn").style.display = "block";
-  } else {
-    document.getElementById("downloadImagesBtn").style.display = "none";
-  }
-
   // Hide loading spinner and enable input
   document.getElementById("loadingSpinner").style.display = "none";
   document.getElementById("myInput").disabled = false;
+  urlName = selectedFileName;
+  searchTerm = "";
+  document.getElementById("searchAll").value = "";
   setUrl();
+}
+
+function showDownloadButton() {
+  if (imageFound) {
+    // Show the download button if images are shown
+    document.getElementById("downloadImagesBtn").style.display = "block";
+    urlName = document.getElementById("myInput").value;
+  } else {
+    document.getElementById("downloadImagesBtn").style.display = "none";
+  }
 }
 
 function replaceAfterFirstDragonborn(inputString) {

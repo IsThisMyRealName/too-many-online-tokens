@@ -15,7 +15,7 @@
     <div class="dropdown-container">
       <!-- <select id="txtFiles" class="select-search"></select> -->
       <input type="text" placeholder="Search.." id="myInput" onkeyup="filterFunction()"
-      onfocus="toggleDropdownShow(true); showDropdown(true);">
+      onfocus="toggleDropdownShow(true); showDropdown(true);" onblur="showDropdown(false);">
       <div id="txtFilesSearch" class="dropdown-content" style="display:none;">
         <div id="loadingSpinner" class="spinner" style="display:none;"></div>
       </div>

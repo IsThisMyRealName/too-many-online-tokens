@@ -4,7 +4,10 @@ let system = params.get("system"); // return dnd, pf, ep etc.
 let searchTerm = params.get("searchTerm"); //custom search
 let urlName = params.get("name"); // return commoner, goblin, splicer etc.
 let tags = params.get("tags");
+const seperator1 = "*";
+const seperator2 = "~";
 var imageFound = false;
+let tagArrays = [];
 
 if (
   system == null ||
@@ -24,6 +27,13 @@ if (searchTerm.length > 0) {
   searchAll();
 }
 
+if (tags == null) {
+} else if (tags.length > 0) {
+  tags.split(seperator2).forEach((part) => {
+    tagArrays.push(part.split(seperator1));
+  });
+}
+
 const halfOrcString = "HalfOrc";
 const halfElfString = "HalfElf";
 const nsfwString = "NSFW";
@@ -39,7 +49,10 @@ function setUrl() {
     url += `&name=${urlName}`;
   }
   //Tags into URL
-
+  var tags = generateTags();
+  if (tags.length > 0) {
+    url += `&tags=${tags}`;
+  }
   history.pushState(null, null, url);
 }
 
@@ -271,6 +284,7 @@ function showOptionToggles(imagePaths) {
   container.innerHTML = ""; // Clear previous checkboxes
   container.style = "display: flex";
   var isFirst = true;
+  var optionIndex = -1;
   nameLists.forEach((options) => {
     const checkboxSubcontainer = document.createElement("div");
     checkboxSubcontainer.className = "CheckboxSubContainer";
@@ -283,13 +297,24 @@ function showOptionToggles(imagePaths) {
       checkbox.value = selectedMonsterNameWithoutSpaces;
       label.htmlFor = selectedMonsterNameWithoutSpaces;
       label.appendChild(document.createTextNode(selectedMonsterName));
+      checkbox.checked = true;
     } else {
+      optionIndex++;
       checkbox.id = "Any";
       checkbox.value = "Any";
       label.htmlFor = "Any";
       label.appendChild(document.createTextNode("Any"));
+      //If an a tag is set via the URL don't check any-checkbox
+      if (
+        Array.isArray(tagArrays) &&
+        tagArrays.length > optionIndex &&
+        tagArrays[optionIndex].length > 0
+      ) {
+        checkbox.checked = false;
+      } else {
+        checkbox.checked = true;
+      }
     }
-    checkbox.checked = true;
 
     checkboxSubcontainer.appendChild(checkbox);
     checkboxSubcontainer.appendChild(label);
@@ -306,7 +331,15 @@ function showOptionToggles(imagePaths) {
       checkbox.type = "checkbox";
       checkbox.id = option;
       checkbox.value = option;
-      checkbox.checked = true;
+      if (
+        Array.isArray(tagArrays) &&
+        tagArrays.length > optionIndex &&
+        tagArrays[optionIndex].length > 0
+      ) {
+        checkbox.checked = tagArrays[optionIndex].includes(option);
+      } else {
+        checkbox.checked = true;
+      }
 
       const label = document.createElement("label");
       label.htmlFor = option;
@@ -321,26 +354,33 @@ function showOptionToggles(imagePaths) {
       .querySelectorAll("input[type=checkbox]")
       .forEach((checkbox) => {
         checkbox.addEventListener("change", () => {
-          const regex = new RegExp(generateRegex());
-          const images = document
-            .getElementById("imagesContainer")
-            .getElementsByTagName("img");
-
-          for (let i = 0; i < images.length; i++) {
-            const img = images[i];
-            if (img.title.match(regex)) {
-              img.style.display = ""; // Show image
-            } else {
-              img.style.display = "none"; // Hide image
-            }
-          }
-          document.getElementById("wildcardpath").value = createWildcardPath();
-          document.getElementById("wildcardpath").style.display = "";
-          document.getElementById("copyWildcardButton").style.display = "";
+          filterImages();
+          setUrl();
         });
       });
   });
   container.childNodes[0].childNodes[0].disabled = true;
+
+  filterImages();
+}
+
+function filterImages() {
+  const regex = new RegExp(generateRegex());
+  const images = document
+    .getElementById("imagesContainer")
+    .getElementsByTagName("img");
+
+  for (let i = 0; i < images.length; i++) {
+    const img = images[i];
+    if (img.title.match(regex)) {
+      img.style.display = ""; // Show image
+    } else {
+      img.style.display = "none"; // Hide image
+    }
+  }
+  document.getElementById("wildcardpath").value = createWildcardPath();
+  document.getElementById("wildcardpath").style.display = "";
+  document.getElementById("copyWildcardButton").style.display = "";
 }
 
 function copyWildcardPath() {
@@ -395,9 +435,44 @@ function generateRegex() {
   return new RegExp(regex);
 }
 
+function generateTags() {
+  let tags = "";
+  tagArrays = [];
+
+  const checkboxContainers = document.querySelectorAll(".CheckboxSubContainer");
+  checkboxContainers.forEach((container, index) => {
+    if (index > 0) {
+      const checkedCheckboxes = container.querySelectorAll(
+        "input[type='checkbox']:checked"
+      );
+      let tagArray = [];
+      if (checkedCheckboxes.length > 0) {
+        for (const checkbox of checkedCheckboxes) {
+          if (checkbox.value === "Any") {
+            tagArray = [];
+            break;
+          } else {
+            tagArray.push(checkbox.value);
+          }
+        }
+      }
+      tagArrays.push(tagArray);
+    }
+  });
+  if (tagArrays.some((e) => e.length > 0)) tags = combineArray(tagArrays);
+
+  return tags;
+}
+
+function combineArray(a) {
+  return a
+    .map((b) => b.join(seperator1)) // Combine elements in each array b with separator1
+    .join(seperator2); // Combine the resulting strings with separator2
+}
+
 // Function to create a wildcard path based on selected checkboxes
 const createWildcardPath = () => {
-  let wildcardPath = `modules/too-many-tokens-dnd/${
+  let wildcardPath = `modules/too-many-tokens-${system}/${
     document.getElementById("myInput").value
   }/`;
   wildcardPath = wildcardPath.replace(/\*+/g, "*");
@@ -481,6 +556,7 @@ function applyTextToInput(text) {
   // Show loading spinner and disable input
   document.getElementById("loadingSpinner").style.display = "block";
   document.getElementById("myInput").disabled = true;
+  tagArrays = [];
   showImages();
   document.getElementById("wildcardpath").value = "";
   document.getElementById("wildcardpath").display = "none";

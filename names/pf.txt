@@ -147,24 +147,40 @@ Poltergeist
 Poracha
 Pteranodon
 Pugwampi
+Pusk
 Python
+Quarna
 Quasit
+Raktavarna
 Ratfolk Grenadier
 Redcap
+Rhinoceros
 Riding Dog
 Riding Horse
 Riding Pony
 River Drake
 Scorpion Swarm
+Sea Hag
+Sedacthy Marauder
+Sedacthy Scout
 Sewer Ooze
+Shadow
 Sinspawn
 Skeletal Champion
 Skeletal Giant
+Skeletal Horse
+Skeleton Guard
 Slurk
 Snapping Flytrap
 Sod Hound
 Soulbound Doll
+Sprigjack
+String Slime
+Sweet Hag
 Tengu Sneak
+Tomb Jelly
+Tooth Fairy
+Tooth Fairy Swarm
 Troll
 Velociraptor
 Void Worm

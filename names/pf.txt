@@ -1,4 +1,5 @@
 Aapoph Serpentfolk
+Air Scamp
 Aiuvarin Elementalist
 Animated Armor
 Animated Broom
@@ -11,6 +12,7 @@ Azarketi Crab Catcher
 Azuretzi
 Barghest
 Basilisk
+Boar
 Boggard Scout
 Boggard Swampseer
 Boggard Warrior
@@ -33,42 +35,38 @@ Cinder Rat
 Cockatrice
 Coil Spy
 Compsognathus
+Crawling Hand
+Crocodile
 Cyclops
+Daeodon
 Dandasuka
-Deep Gnome Rockwarden
-Deep Gnome Scout
-Deep Gnome Warrior
 Deinonychus
 Dero Magister
 Dero Stalker
 Dero Strangler
 Dhampir Wizard
-Djinn
-Doppelganger
+Dire Wolf
 Draxie
 Dromaar Mountaineer
 Drow Fighter
 Drow Priestess
 Dryad
-Duergar Bombardier
-Duergar Sharpshooter
-Duergar Taskmaster
 Duskwalker Ghost Hunter
 Dwarf Stonecaster
 Dwarf Warrior
+Eagle
 Electric Eel
 Elf Ranger
 Ether Spider
-Faceless Stalker
 Fey Dragonet
-Fire Drake
+Flame Drake
 Flash Beetle
+Forest Troll
 Fungus Leshy
 Gancanagh
-Gargolye
-Gelatinous Cube
+Gargoyle
 Ghast
-Ghost
+Ghost Commoner
 Giant Ant
 Giant Bat
 Giant Centipede
@@ -83,7 +81,6 @@ Giant Scorpion
 Giant Stag Beetle
 Giant Viper
 Giant Wasp
-Gibbering Mouther
 Globster
 Gnome Bard
 Goblin Commando
@@ -95,16 +92,20 @@ Great White Shark
 Grindylow
 Grizzly Bear
 Grothlut
-Hafling Streetwatcher
+Halfling Street Watcher
 Halfling Troublemaker
 Harpy
 Hell Hound
 Herexen
 Hippocampus
 Hobgoblin Archer
-Hobgoblin Warrior
+Hobgoblin Soldier
 Homunculus
+Hryngar Bombardier
+Hryngar Sharpshooter
+Hryngar Taskmaster
 Imp
+Jaathoom
 Jinkin
 Kholo Bonekeeper
 Kholo Hunter
@@ -114,7 +115,6 @@ Kobold Scout
 Kobold Warrior
 Larval Ofalth
 Lawbringer Warpriest
-Lemure
 Leopard
 Lion
 Living Landslide
@@ -130,15 +130,15 @@ Merfolk Wavecaller
 Mitflit
 Naiad
 Nosoi
-Ochre Jelly
 Ogre Glutton
 Ogre Warrior
 Orc Commander
 Orc Scrapper
 Orc Veteran
 Orca
+Ort
 Pegasus
-PhantomKnight
+Phantom Knight
 Pipefox
 Pitborn Adept
 Pixie
@@ -149,8 +149,7 @@ Pteranodon
 Pugwampi
 Pusk
 Python
-Quarna
-Quasit
+Qarna
 Raktavarna
 Ratfolk Grenadier
 Redcap
@@ -181,10 +180,23 @@ Tengu Sneak
 Tomb Jelly
 Tooth Fairy
 Tooth Fairy Swarm
-Troll
+Twigjack
+Ugothol
+Umbral Gnome Rockwarden
+Umbral Gnome Scout
+Umbral Gnome Warrior
+Unicorn
+Vampire Bat Swarm
 Velociraptor
-Void Worm
+Voidworm
 Vordine
+War Horse
 War Pony
+Witch Warg
+Wolf
+Woolly Rhinoceros
+Xulgath Leader
+Xulgath Skulker
+Xulgath Warrior
 Zephyr Hawk
 Zombie Brute

@@ -39,7 +39,6 @@ Crawling Hand
 Crocodile
 Cyclops
 Daeodon
-Dandasuka
 Deinonychus
 Dero Magister
 Dero Stalker
@@ -48,8 +47,6 @@ Dhampir Wizard
 Dire Wolf
 Draxie
 Dromaar Mountaineer
-Drow Fighter
-Drow Priestess
 Dryad
 Duskwalker Ghost Hunter
 Dwarf Stonecaster
@@ -57,7 +54,6 @@ Dwarf Warrior
 Eagle
 Electric Eel
 Elf Ranger
-Ether Spider
 Fey Dragonet
 Flame Drake
 Flash Beetle
@@ -77,6 +73,7 @@ Giant Gecko
 Giant Mantis
 Giant Monitor Lizard
 Giant Moray Eel
+Giant Rat
 Giant Scorpion
 Giant Stag Beetle
 Giant Viper
@@ -88,24 +85,30 @@ Goblin Dog
 Goblin Pyro
 Goblin War Chanter
 Gorilla
+Gourd Leshy
 Great White Shark
+Griffon
 Grindylow
 Grizzly Bear
 Grothlut
+Guard Dog
 Halfling Street Watcher
 Halfling Troublemaker
 Harpy
 Hell Hound
 Herexen
 Hippocampus
+Hippogriff
 Hobgoblin Archer
 Hobgoblin Soldier
 Homunculus
 Hryngar Bombardier
 Hryngar Sharpshooter
 Hryngar Taskmaster
+Hyaenodon
 Imp
 Jaathoom
+Jann
 Jinkin
 Kholo Bonekeeper
 Kholo Hunter
@@ -115,6 +118,7 @@ Kobold Scout
 Kobold Warrior
 Larval Ofalth
 Lawbringer Warpriest
+Leaf Leshy
 Leopard
 Lion
 Living Landslide
@@ -127,6 +131,7 @@ Lizardfolk Stargazer
 Lyrakien
 Merfolk Warrior
 Merfolk Wavecaller
+Minotaur Hunter
 Mitflit
 Naiad
 Nosoi
@@ -192,11 +197,16 @@ Voidworm
 Vordine
 War Horse
 War Pony
-Witch Warg
+Werebear
+Wererat
+Weretiger
+Werewolf
+Witchwarg
 Wolf
 Woolly Rhinoceros
 Xulgath Leader
 Xulgath Skulker
 Xulgath Warrior
 Zephyr Hawk
+Zoaem
 Zombie Brute

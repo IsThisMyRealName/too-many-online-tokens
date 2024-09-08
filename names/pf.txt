@@ -52,9 +52,11 @@ Duskwalker Ghost Hunter
 Dwarf Stonecaster
 Dwarf Warrior
 Eagle
+Earth Scamp
 Electric Eel
 Elf Ranger
 Fey Dragonet
+Fire Scamp
 Flame Drake
 Flash Beetle
 Forest Troll
@@ -105,7 +107,9 @@ Homunculus
 Hryngar Bombardier
 Hryngar Sharpshooter
 Hryngar Taskmaster
+Hunting Spider
 Hyaenodon
+Hyena
 Imp
 Jaathoom
 Jann
@@ -197,6 +201,7 @@ Voidworm
 Vordine
 War Horse
 War Pony
+Water Scamp
 Werebear
 Wererat
 Weretiger

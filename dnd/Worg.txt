@@ -1,4 +1,3 @@
-Prompts.txt
 Worg (1).webp
 Worg (10).webp
 Worg (11).webp

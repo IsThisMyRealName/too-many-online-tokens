@@ -63,7 +63,6 @@ Forest Troll
 Fungus Leshy
 Gancanagh
 Gargoyle
-Ghast
 Ghost Commoner
 Giant Ant
 Giant Bat
@@ -160,6 +159,7 @@ Pusk
 Python
 Qarna
 Raktavarna
+Rat Swarm
 Ratfolk Grenadier
 Redcap
 Rhinoceros
@@ -167,6 +167,8 @@ Riding Dog
 Riding Horse
 Riding Pony
 River Drake
+Satyr
+Scarecrow
 Scorpion Swarm
 Sea Hag
 Sedacthy Marauder
@@ -182,10 +184,12 @@ Slurk
 Snapping Flytrap
 Sod Hound
 Soulbound Doll
+Spider Swarm
 Sprigjack
 String Slime
 Sweet Hag
 Tengu Sneak
+Tiger
 Tomb Jelly
 Tooth Fairy
 Tooth Fairy Swarm
@@ -197,15 +201,19 @@ Umbral Gnome Warrior
 Unicorn
 Vampire Bat Swarm
 Velociraptor
+Viper
 Voidworm
 Vordine
 War Horse
 War Pony
+Warg
+Wasp Swarm
 Water Scamp
 Werebear
 Wererat
 Weretiger
 Werewolf
+Wight
 Witchwarg
 Wolf
 Woolly Rhinoceros

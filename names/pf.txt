@@ -85,6 +85,7 @@ Goblin Commando
 Goblin Dog
 Goblin Pyro
 Goblin War Chanter
+Goblin Warrior
 Gorilla
 Gourd Leshy
 Great White Shark

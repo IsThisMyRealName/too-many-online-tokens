@@ -64,6 +64,8 @@ Fungus Leshy
 Gancanagh
 Gargoyle
 Ghost Commoner
+Ghoul Soldier
+Ghoul Stalker
 Giant Ant
 Giant Bat
 Giant Centipede
@@ -221,6 +223,8 @@ Woolly Rhinoceros
 Xulgath Leader
 Xulgath Skulker
 Xulgath Warrior
+Yeti
 Zephyr Hawk
 Zoaem
 Zombie Brute
+Zyss Serpentfolk

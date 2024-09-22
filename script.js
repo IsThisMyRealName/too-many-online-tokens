@@ -67,8 +67,10 @@ function showDropdown(shouldShow, force = false) {
   }
 }
 // Define the base URL for image paths
-const baseUrl = `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/`;
-if (system != "dnd") {
+var baseUrl;
+if (system == "dnd") {
+  baseUrl = `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/`;
+} else {
   baseUrl = `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/Tokens/`;
 }
 

@@ -68,6 +68,9 @@ function showDropdown(shouldShow, force = false) {
 }
 // Define the base URL for image paths
 const baseUrl = `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/`;
+if (system != "dnd") {
+  baseUrl = `https://raw.githubusercontent.com/IsThisMyRealName/too-many-tokens-${system}/main/Tokens/`;
+}
 
 // Function to fetch image paths from a selected .txt file
 async function fetchImagePaths(fileName) {

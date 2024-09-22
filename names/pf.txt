@@ -34,6 +34,7 @@ Chupacabra
 Cinder Rat
 Cockatrice
 Coil Spy
+Commoner
 Compsognathus
 Crawling Hand
 Crocodile
@@ -189,6 +190,7 @@ Sod Hound
 Soulbound Doll
 Spider Swarm
 Sprigjack
+Sprite
 String Slime
 Sweet Hag
 Tengu Sneak
@@ -203,6 +205,7 @@ Umbral Gnome Scout
 Umbral Gnome Warrior
 Unicorn
 Vampire Bat Swarm
+Vampire Servitor
 Velociraptor
 Viper
 Voidworm
@@ -227,4 +230,5 @@ Yeti
 Zephyr Hawk
 Zoaem
 Zombie Brute
+Zombie Shambler
 Zyss Serpentfolk

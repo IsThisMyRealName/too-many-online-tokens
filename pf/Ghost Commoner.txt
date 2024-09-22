@@ -23,9 +23,11 @@ GhostCommonerGnomeMale (4).webp
 GhostCommonerGnomeMale (5).webp
 GhostCommonerGoblinFemale (1).webp
 GhostCommonerGoblinFemale (2).webp
+GhostCommonerGoblinFemale (3).webp
 GhostCommonerGoblinMale (1).webp
 GhostCommonerGoblinMale (2).webp
 GhostCommonerGoblinMale (3).webp
+GhostCommonerGoblinMale (4).webp
 GhostCommonerHalfElfFemale (1).webp
 GhostCommonerHalfElfFemale (10).webp
 GhostCommonerHalfElfFemale (11).webp

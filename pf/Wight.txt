@@ -13,9 +13,12 @@ WightDromaarMale (2).webp
 WightDromaarMale (3).webp
 WightDwarfFemale (1).webp
 WightDwarfFemale (2).webp
+WightDwarfFemale (3).webp
+WightDwarfFemale (4).webp
 WightDwarfMale (1).webp
 WightDwarfMale (2).webp
 WightDwarfMale (3).webp
+WightDwarfMale (4).webp
 WightElfFemale (1).webp
 WightElfFemale (2).webp
 WightElfFemale (3).webp

@@ -93,6 +93,8 @@ async function searchAll() {
     return;
   }
 
+  document.getElementById("checkboxContainer").style.display = "none";
+  document.getElementById("wildcardContainer").style.display = "none";
   const foundNames = new Map();
   const txtFiles = await fetchTxtFiles();
   document.getElementById("searchAll").value = searchTerm;
@@ -130,7 +132,7 @@ async function searchAll() {
   if (foundNames.size > 0) {
     for (const [key, value] of foundNames.entries()) {
       addImagesFromPaths(value, key);
-      showOptionToggles(value);
+      // showOptionToggles(value);
     }
     urlName = "";
     document.getElementById("myInput").value = urlName;
@@ -286,6 +288,8 @@ function showOptionToggles(imagePaths) {
   });
 
   const container = document.getElementById("checkboxContainer");
+  container.style.display = "";
+  document.getElementById("wildcardContainer").style.display = "";
   container.innerHTML = ""; // Clear previous checkboxes
   container.style = "display: flex";
   var isFirst = true;

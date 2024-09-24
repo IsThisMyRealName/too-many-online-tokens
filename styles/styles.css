@@ -81,6 +81,11 @@ button:disabled {
     align-items: center;
 }
 
+img{
+    border-radius: 128px;
+    margin: 5px;
+}
+
 img:hover {
     cursor: pointer;
     scale: 1.1;

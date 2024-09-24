@@ -87,6 +87,19 @@ img:hover {
     transition: 0.3s;
 }
 
+.notification{
+    color: #fff;
+    background: #007bff;
+    display: block;
+    box-sizing: border-box;
+    padding: 10px 12px;
+    font-size: 16px;
+    border-radius: 3px;
+    position: absolute;
+    align-self: center;
+    opacity: 0;
+}
+
 .minimized img {
     display: none;
 }

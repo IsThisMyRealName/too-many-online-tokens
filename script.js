@@ -611,8 +611,20 @@ function copyImageLink(imageLink) {
   // Remove the temporary input element
   document.body.removeChild(tempInput);
 
-  // Optionally, provide feedback to the user
-  new Notification("Image link copied to clipboard: " + imageLink);
+  // Show the copied_notification element
+  var notificationElement = document.getElementById("copied_notification");
+  if (notificationElement) {
+    // Make the notification visible
+    notificationElement.style.transition = "opacity 0s";
+    notificationElement.style.opacity = 1;
+    notificationElement.innerHTML = `${imageLink} copied to clipboard!`;
+    // Wait for a moment before starting the fade-out effect
+    setTimeout(function () {
+      // Gradually reduce the opacity over 1 second
+      notificationElement.style.transition = "opacity 1s";
+      notificationElement.style.opacity = 0;
+    }, 3000); // Keep the notification fully visible for 3 seconds
+  }
 }
 
 // Function to download images as a zip file

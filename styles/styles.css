@@ -81,6 +81,12 @@ button:disabled {
     align-items: center;
 }
 
+img:hover {
+    cursor: pointer;
+    scale: 1.1;
+    transition: 0.3s;
+}
+
 .minimized img {
     display: none;
 }

@@ -56,6 +56,18 @@ button {
     cursor: pointer;
 }
 
+.button {
+    margin-top: 10px;
+    padding: 8px 12px;
+    font-size: 16px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    margin: 15px;
+}
+
 button:disabled {
     background-color: #ccc;
     cursor: not-allowed;

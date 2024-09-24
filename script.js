@@ -16,7 +16,17 @@ if (
 ) {
   system = "dnd";
 }
+var otherSystem = "pf";
+if (system == "pf") {
+  otherSystem = "dnd";
+}
 document.title = `Too-Many-Tokens-${system.toUpperCase()}`;
+document.getElementById("switchSystemLink").href = updateQueryParams({
+  system: `${otherSystem}`,
+});
+document.getElementById(
+  "switchSystemLink"
+).innerHTML = `Go to too many tokens - ${otherSystem}`;
 
 if (searchTerm == null || searchTerm.length < 1) {
   searchTerm = "";
@@ -671,4 +681,17 @@ async function fetchTxtFiles() {
 
   const txtFiles = lines.split("\n");
   return txtFiles;
+}
+// Function to update the query parameters
+function updateQueryParams(params) {
+  // Get the current URL
+  let currentUrl = new URL(window.location.href);
+
+  // Add or update the query parameters
+  for (const key in params) {
+    currentUrl.searchParams.set(key, params[key]);
+  }
+
+  // Return the updated URL as a string
+  return currentUrl.href;
 }

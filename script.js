@@ -141,7 +141,7 @@ async function searchAll() {
 
   showDownloadButton();
   // countDisplay.textContent = `Search complete. Total images found: ${totalImagesFound}`;
-  showNotification(`Images found: ${totalImagesFound}`);
+  // showNotification(`Images found: ${totalImagesFound}`);
 }
 
 function clearImages() {

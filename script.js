@@ -89,7 +89,7 @@ async function fetchImagePaths(fileName) {
 
 async function searchAll() {
   if (searchTerm.length < 3) {
-    console.error("Please search for at least 3 characters");
+    showNotification("Please search for at least 3 characters");
     return;
   }
 
@@ -419,7 +419,7 @@ function showNotification(notificationString) {
       // Gradually reduce the opacity over 1 second
       notificationElement.style.transition = "opacity 1s";
       notificationElement.style.opacity = 0;
-    }, 3000); // Keep the notification fully visible for 3 seconds
+    }, 2000); // Keep the notification fully visible for 3 seconds
   }
 }
 

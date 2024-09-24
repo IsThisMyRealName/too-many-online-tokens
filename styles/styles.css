@@ -95,8 +95,10 @@ img:hover {
     padding: 10px 12px;
     font-size: 16px;
     border-radius: 3px;
-    position: absolute;
-    align-self: center;
+    position: fixed;        /* Position fixed relative to viewport */
+        bottom: 10%;        /* 10% from the bottom of the screen */
+        left: 50%;        /* Center horizontally by setting left to 50% */
+        transform: translateX(-50%);        /* Move left by 50% of the element's width to center it */
     opacity: 0;
 }
 

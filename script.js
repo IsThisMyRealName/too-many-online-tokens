@@ -254,7 +254,8 @@ function showOptionToggles(imagePaths) {
   const selectedMonsterName = document.getElementById("myInput").value;
   const selectedMonsterNameWithoutSpaces = selectedMonsterName
     .replace(/\b\w/g, (match) => match.toUpperCase())
-    .replace(/\s/g, "");
+    .replace(/\s/g, "")
+    .replace(/-|'/g, "");
   const fullNamesList = imagePaths.map((file) => {
     const fileName = file.split("/").pop(); // Get the file name
     const actorNameWithoutSpaces = fileName.split(" ")[0]; // Get actor name without spaces
@@ -467,7 +468,7 @@ function generateRegex() {
 
   regex += ""; // End of string anchor
 
-  return new RegExp(regex);
+  return new RegExp(regex, "i");
 }
 
 function generateTags() {
